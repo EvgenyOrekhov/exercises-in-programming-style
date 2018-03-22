@@ -10,8 +10,8 @@ function tf(text, stopWords = "", limit = 25) {
 
     const frequencies = text
         .toLowerCase()
-        .split(/[\W_]+/)
-        .filter((word) => (word.length > 1 && !stopWordsArray.includes(word)))
+        .match(/[a-z]{2,}/g)
+        .filter((word) => !stopWordsArray.includes(word))
         .reduce(
             function (acc, word) {
                 acc[word] = acc[word] === undefined
